@@ -38,7 +38,7 @@ class BBBoletoPDF
     private function montarHTML()
     {
         $dadosBoleto = $this->dadosBoleto;
-        require_once 'BoletoPDF/HTMLBoletoBB.php';
+        require 'BoletoPDF/HTMLBoletoBB.php';
     }
 
     private function formatarLinhaDigitavel($linha)

@@ -1,5 +1,5 @@
 <?php
-require_once 'CSS.php';
+require 'CSS.php';
 
 use Picqer\Barcode\BarcodeGeneratorHTML;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
