@@ -590,4 +590,14 @@ class BankingBB
                 throw $e;
         }
     }
+
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    public function getConvenio()
+    {
+        return $this->config['numeroConvenio'];
+    }
 }
