@@ -311,6 +311,7 @@ class BankingBB
 
     public function listarBoletos($filters)
     {
+        $filters['gw-dev-app-key'] = $this->config['application_key'];
         try {
             $response = $this->clientCobranca->request(
                 'GET',
@@ -321,17 +322,7 @@ class BankingBB
                         'Authorization' => 'Bearer ' . $this->token . ''
                     ],
                     'verify' => false,
-                    'query' => [
-                        'gw-dev-app-key' => $this->config['application_key'],
-                        'indicadorSituacao' => $filters['indicadorSituacao'],
-                        'agenciaBeneficiario' => $filters["agenciaBeneficiario"],
-                        'contaBeneficiario' => $filters["contaBeneficiario"],
-                        'cnpjPagador' => '',
-                        'digitoCNPJPagador' => '',
-                        'digitoCNPJPagador' => '',
-                        'codigoEstadoTituloCobranca' => $filters['codigoEstadoTituloCobranca'],
-                        'boletoVencido' => $filters['boletoVencido'],
-                    ],
+                    'query' => $filters,
                 ]
             );
             $statusCode = $response->getStatusCode();
