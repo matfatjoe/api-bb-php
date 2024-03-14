@@ -169,7 +169,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao incluir Boleto Cobranca: {$response}"];
@@ -204,7 +226,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao alterar Boleto Cobranca: {$response}"];
@@ -236,7 +280,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao detalhar Boleto Cobranca: {$response}"];
@@ -267,7 +333,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->textoMensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->textoMensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao baixar Boleto Cobranca: {$response}"];
@@ -299,7 +387,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao baixar Boleto Cobranca: {$response}"];
@@ -332,7 +442,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao baixar Boleto Cobranca: {$response}"];
@@ -367,7 +499,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao baixar Boleto Cobranca: {$response}"];
@@ -403,7 +557,29 @@ class BankingBB
             $requestParameters = $e->getRequest();
             $bodyContent = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->traitClientException($statusCode, $bodyContent, $requestParameters);
+            switch ($statusCode) {
+                case InvalidRequestException::HTTP_STATUS_CODE:
+                    $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case UnauthorizedException::HTTP_STATUS_CODE:
+                    $exception = new UnauthorizedException($bodyContent->message);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case InternalServerErrorException::HTTP_STATUS_CODE:
+                    $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
+                    $exception->setRequestParameters($requestParameters);
+                    $exception->setBodyContent($bodyContent);
+                    throw $exception;
+                case ServiceUnavailableException::HTTP_STATUS_CODE:
+                    $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
+                    $exception->setRequestParameters($requestParameters);
+                    throw $exception;
+                default:
+                    throw $e;
+            }
         } catch (\Exception $e) {
             $response = $e->getMessage();
             return ['error' => "Falha ao baixar Boleto Cobranca: {$response}"];
@@ -563,33 +739,6 @@ class BankingBB
     ######################################################
     ############## FIM - QRCODES #########################
     ######################################################
-
-    private function traitClientException($statusCode, $bodyContent, $requestParameters)
-    {
-        switch ($statusCode) {
-            case InvalidRequestException::HTTP_STATUS_CODE:
-                $exception = new InvalidRequestException($bodyContent->erros[0]->mensagem);
-                $exception->setRequestParameters($requestParameters);
-                $exception->setBodyContent($bodyContent);
-                throw $exception;
-            case UnauthorizedException::HTTP_STATUS_CODE:
-                $exception = new UnauthorizedException($bodyContent->message);
-                $exception->setRequestParameters($requestParameters);
-                $exception->setBodyContent($bodyContent);
-                throw $exception;
-            case InternalServerErrorException::HTTP_STATUS_CODE:
-                $exception = new InternalServerErrorException($bodyContent->erros[0]->mensagem);
-                $exception->setRequestParameters($requestParameters);
-                $exception->setBodyContent($bodyContent);
-                throw $exception;
-            case ServiceUnavailableException::HTTP_STATUS_CODE:
-                $exception = new ServiceUnavailableException("SERVIÇO INDISPONÍVEL");
-                $exception->setRequestParameters($requestParameters);
-                throw $exception;
-            default:
-                throw $e;
-        }
-    }
 
     public function getConfig()
     {
